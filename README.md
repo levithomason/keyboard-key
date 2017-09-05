@@ -3,6 +3,8 @@ keyboard-key
 [![David](https://img.shields.io/david/levithomason/keyboard-key.svg?style=flat-square)]()
 ============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/levithomason/keyboard-key.svg)](https://greenkeeper.io/)
+
 A simple utility for determining the `KeyboardEvent.key` property from a keyboard event.
 
 <!-- toc -->
