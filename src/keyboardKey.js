@@ -1,6 +1,10 @@
-const isObject = val => val !== null && !Array.isArray(val) && typeof val === 'object'
+'use strict'
 
-const codes = {
+var isObject = function isObject(val) {
+  return val !== null && !Array.isArray(val) && typeof val === 'object'
+}
+
+var codes = {
   // ----------------------------------------
   // By Code
   // ----------------------------------------
@@ -74,18 +78,18 @@ const codes = {
 }
 
 // Function Keys (F1-24)
-for (let i = 0; i < 24; i += 1) {
+for (var i = 0; i < 24; i += 1) {
   codes[112 + i] = 'F' + (i + 1)
 }
 
 // Alphabet (a-Z)
-for (let i = 0; i < 26; i += 1) {
-  const n = i + 65
+for (var j = 0; j < 26; j += 1) {
+  var n = j + 65
   codes[n] = [String.fromCharCode(n + 32), String.fromCharCode(n)]
 }
 
-const keyboardKey = {
-  codes,
+var keyboardKey = {
+  codes: codes,
 
   /**
    * Get the `keyCode` or `which` value from a keyboard event or `key` name.
@@ -95,7 +99,7 @@ const keyboardKey = {
    * @param {string} [name.which] If object, it must have one of these keys.
    * @returns {*}
    */
-  getCode(name) {
+  getCode: function getCode(name) {
     if (isObject(name)) {
       return name.keyCode || name.which || this[name.key]
     }
@@ -110,9 +114,9 @@ const keyboardKey = {
    * @param {number} [code.shiftKey] If object, it must have one of these keys.
    * @returns {*}
    */
-  getKey(code) {
-    const isEvent = isObject(code)
-    let name = codes[isEvent ? code.keyCode || code.which : code]
+  getKey: function getKey(code) {
+    var isEvent = isObject(code)
+    var name = codes[isEvent ? code.keyCode || code.which : code]
 
     if (Array.isArray(name)) {
       if (isEvent) {
