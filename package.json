@@ -6,6 +6,8 @@
   "main": "src/keyboardKey.js",
   "author": "Levi Thomason",
   "license": "MIT",
+  "repository": "https://github.com/levithomason/keyboard-key",
+  "bugs": "https://github.com/levithomason/keyboard-key/issues",
   "scripts": {
     "lint": "prettier --list-different \"**/*.js?(on|x)\" && eslint \"**/*.js?(on|x)\"",
     "lint:fix": "prettier --write \"**/*.js?(on|x)\" && eslint --fix \"**/*.js?(on|x)\"",
