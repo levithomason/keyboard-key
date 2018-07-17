@@ -8,16 +8,15 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "yarn.lock" }}
-      - run: sudo yarn global add greenkeeper-lockfile@1 now
+          - v2-dependencies-{{ checksum "yarn.lock" }}
+      - run: sudo yarn global add greenkeeper-lockfile now
       - run: yarn
       - save_cache:
-          key: v1-dependencies-{{ checksum "yarn.lock" }}
+          key: v2-dependencies-{{ checksum "yarn.lock" }}
           paths:
-            - node_modules
-            - ~/.yarn-cache
+            - ~/.cache/yarn
       - run: greenkeeper-lockfile-update
+      - run: greenkeeper-lockfile-upload
       - run: yarn lint
       - run: yarn test
       - run: bash <(curl -s https://codecov.io/bash)
-      - run: greenkeeper-lockfile-upload
