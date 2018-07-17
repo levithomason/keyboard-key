@@ -6,7 +6,10 @@
   "main": "src/keyboardKey.js",
   "author": "Levi Thomason",
   "license": "MIT",
-  "repository": "https://github.com/levithomason/keyboard-key",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://github.com/levithomason/keyboard-key.git"
+  },
   "bugs": "https://github.com/levithomason/keyboard-key/issues",
   "scripts": {
     "lint": "prettier --list-different \"**/*.js?(on|x)\" && eslint \"**/*.js?(on|x)\"",
