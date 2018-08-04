@@ -1,8 +1,7 @@
 {
   "name": "keyboard-key",
-  "version": "1.0.1",
-  "description":
-    "A simple utility for determining the KeyboardEvent.key property from a keyboard event.",
+  "version": "1.0.2",
+  "description": "A simple utility for determining the KeyboardEvent.key property from a keyboard event.",
   "main": "src/keyboardKey.js",
   "author": "Levi Thomason",
   "license": "MIT",
@@ -25,7 +24,11 @@
   },
   "jest": {
     "collectCoverage": true,
-    "collectCoverageFrom": ["src/**/*.js", "!**/node_modules/**", "!**/test/**"],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!**/node_modules/**",
+      "!**/test/**"
+    ],
     "coverageDirectory": "coverage",
     "coverageThreshold": {
       "global": {
@@ -35,12 +38,21 @@
         "statements": 50
       }
     },
-    "roots": ["./src", "./test"],
-    "testMatch": ["**/*.spec.js"],
+    "roots": [
+      "./src",
+      "./test"
+    ],
+    "testMatch": [
+      "**/*.spec.js"
+    ],
     "testEnvironment": "node"
   },
   "lint-staged": {
-    "*.js?(on|x)": ["prettier --write", "eslint --fix", "git add"]
+    "*.js?(on|x)": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "devDependencies": {
     "babel-eslint": "^8.0.0",
