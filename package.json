@@ -36,7 +36,8 @@
       }
     },
     "roots": ["./src", "./test"],
-    "testMatch": ["**/*.spec.js"]
+    "testMatch": ["**/*.spec.js"],
+    "testEnvironment": "node"
   },
   "lint-staged": {
     "*.js?(on|x)": ["prettier --write", "eslint --fix", "git add"]
