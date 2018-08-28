@@ -1,5 +1,5 @@
 keyboard-key
-[![CircleCI](https://img.shields.io/circleci/project/github/levithomason/keyboard-key.svg?style=flat-square)](https://circleci.com/gh/levithomason/keyboard-key)
+[![CircleCI](https://img.shields.io/circleci/project/github/levithomason/keyboard-key/master.svg?style=flat-square)](https://circleci.com/gh/levithomason/keyboard-key/master)
 [![Codecov](https://img.shields.io/codecov/c/github/levithomason/keyboard-key/master.svg?style=flat-square)](https://codecov.io/gh/levithomason/keyboard-key)
 [![David](https://img.shields.io/david/levithomason/keyboard-key.svg?style=flat-square)](https://david-dm.org/levithomason/keyboard-key)
 [![npm](https://img.shields.io/npm/v/keyboard-key.svg?style=flat-square)](https://www.npmjs.com/package/keyboard-key)
