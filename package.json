@@ -1,6 +1,6 @@
 {
   "name": "keyboard-key",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple utility for determining the KeyboardEvent.key property from a keyboard event.",
   "main": "src/keyboardKey.js",
   "author": "Levi Thomason",
