@@ -108,26 +108,26 @@ var keyboardKey = {
 
   /**
    * Get the key name from a keyboard event, `keyCode`, or `which` value.
-   * @param {number|object} eventOrName A keyboard event-like object or key name.
-   * @param {number} [eventOrName.key] If object with a `key` name, it will be returned.
-   * @param {number} [eventOrName.keyCode] If object, it must have one of these keys.
-   * @param {number} [eventOrName.which] If object, it must have one of these keys.
-   * @param {number} [eventOrName.shiftKey] If object, it must have one of these keys.
+   * @param {number|object} eventOrCode A keyboard event-like object or key code.
+   * @param {number} [eventOrCode.key] If object with a `key` name, it will be returned.
+   * @param {number} [eventOrCode.keyCode] If object, it must have one of these keys.
+   * @param {number} [eventOrCode.which] If object, it must have one of these keys.
+   * @param {number} [eventOrCode.shiftKey] If object, it must have one of these keys.
    * @returns {*}
    */
-  getKey: function getKey(eventOrName) {
-    var isEvent = isObject(eventOrName)
+  getKey: function getKey(eventOrCode) {
+    var isEvent = isObject(eventOrCode)
 
     // handle events with a `key` already defined
-    if (isEvent && eventOrName.key) {
-      return eventOrName.key
+    if (isEvent && eventOrCode.key) {
+      return eventOrCode.key
     }
 
-    var name = codes[isEvent ? eventOrName.keyCode || eventOrName.which : eventOrName]
+    var name = codes[isEvent ? eventOrCode.keyCode || eventOrCode.which : eventOrCode]
 
     if (Array.isArray(name)) {
       if (isEvent) {
-        name = name[eventOrName.shiftKey ? 1 : 0]
+        name = name[eventOrCode.shiftKey ? 1 : 0]
       } else {
         name = name[0]
       }
