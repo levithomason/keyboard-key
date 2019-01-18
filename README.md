@@ -14,6 +14,7 @@ A simple utility for determining the `KeyboardEvent.key` property from a keyboar
   * [getKey()](#getkey)
   * [getCode()](#getcode)
 - [Why?](#why)
+- [Locale Caveat](#locale-caveat)
 
 <!-- tocstop -->
 
@@ -81,6 +82,10 @@ Most previous key identifying KeyboardEvent properties have been pressed have be
 :+1: `KeyboardEvent.key`
 
 Unfortunately, `KeyboardEvent.key` does not yet have full [browser support][3].  Leaving the browsers without a reliable property for identifying keyboard event keys.
+
+## Locale Caveat
+
+This utility interprets use of the shift key when inferring event `key` values.  Example, an event describing <kbd>shift</kbd>+<kbd>/</kbd> would result in a `key` value of <kbd>?</kbd>.  This logic assumes an `en-US` locale keyboard layout.  This will **not work** if you are using a different locale such as a German layout where <kbd>/</kbd> is <kbd>shift</kbd>+<kbd>7</kbd>. 
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
 [2]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values

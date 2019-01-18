@@ -125,5 +125,9 @@ describe('keyboardKey', () => {
         }
       })
     })
+    test('handles event like objects with a `key` property', () => {
+      const keyName = keyboardKey.getKey({ key: '/' })
+      expect(keyName).toEqual('/')
+    })
   })
 })

@@ -93,34 +93,41 @@ var keyboardKey = {
 
   /**
    * Get the `keyCode` or `which` value from a keyboard event or `key` name.
-   * @param {string|object} name A keyboard event like object or `key` name.
-   * @param {string} [name.key] If object, it must have one of these keys.
-   * @param {string} [name.keyCode] If object, it must have one of these keys.
-   * @param {string} [name.which] If object, it must have one of these keys.
+   * @param {string|object} eventOrKey A keyboard event-like object or `key` name.
+   * @param {string} [eventOrKey.key] If object, it must have one of these keys.
+   * @param {string} [eventOrKey.keyCode] If object, it must have one of these keys.
+   * @param {string} [eventOrKey.which] If object, it must have one of these keys.
    * @returns {*}
    */
-  getCode: function getCode(name) {
-    if (isObject(name)) {
-      return name.keyCode || name.which || this[name.key]
+  getCode: function getCode(eventOrKey) {
+    if (isObject(eventOrKey)) {
+      return eventOrKey.keyCode || eventOrKey.which || this[eventOrKey.key]
     }
-    return this[name]
+    return this[eventOrKey]
   },
 
   /**
    * Get the key name from a keyboard event, `keyCode`, or `which` value.
-   * @param {number|object} code A keyboard event like object or key name.
-   * @param {number} [code.keyCode] If object, it must have one of these keys.
-   * @param {number} [code.which] If object, it must have one of these keys.
-   * @param {number} [code.shiftKey] If object, it must have one of these keys.
+   * @param {number|object} eventOrName A keyboard event-like object or key name.
+   * @param {number} [eventOrName.key] If object with a `key` name, it will be returned.
+   * @param {number} [eventOrName.keyCode] If object, it must have one of these keys.
+   * @param {number} [eventOrName.which] If object, it must have one of these keys.
+   * @param {number} [eventOrName.shiftKey] If object, it must have one of these keys.
    * @returns {*}
    */
-  getKey: function getKey(code) {
-    var isEvent = isObject(code)
-    var name = codes[isEvent ? code.keyCode || code.which : code]
+  getKey: function getKey(eventOrName) {
+    var isEvent = isObject(eventOrName)
+
+    // handle events with a `key` already defined
+    if (isEvent && eventOrName.key) {
+      return eventOrName.key
+    }
+
+    var name = codes[isEvent ? eventOrName.keyCode || eventOrName.which : eventOrName]
 
     if (Array.isArray(name)) {
       if (isEvent) {
-        name = name[code.shiftKey ? 1 : 0]
+        name = name[eventOrName.shiftKey ? 1 : 0]
       } else {
         name = name[0]
       }
