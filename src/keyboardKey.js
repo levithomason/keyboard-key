@@ -95,9 +95,9 @@ var keyboardKey = {
    * Get the `keyCode` or `which` value from a keyboard event or `key` name.
    * @param {string|object} eventOrKey A keyboard event-like object or `key` name.
    * @param {string} [eventOrKey.key] If object, it must have one of these keys.
-   * @param {string} [eventOrKey.keyCode] If object, it must have one of these keys.
-   * @param {string} [eventOrKey.which] If object, it must have one of these keys.
-   * @returns {*}
+   * @param {number} [eventOrKey.keyCode] If object, it must have one of these keys.
+   * @param {number} [eventOrKey.which] If object, it must have one of these keys.
+   * @returns {number|undefined}
    */
   getCode: function getCode(eventOrKey) {
     if (isObject(eventOrKey)) {
@@ -109,11 +109,11 @@ var keyboardKey = {
   /**
    * Get the key name from a keyboard event, `keyCode`, or `which` value.
    * @param {number|object} eventOrCode A keyboard event-like object or key code.
-   * @param {number} [eventOrCode.key] If object with a `key` name, it will be returned.
+   * @param {string} [eventOrCode.key] If object with a `key` name, it will be returned.
    * @param {number} [eventOrCode.keyCode] If object, it must have one of these keys.
    * @param {number} [eventOrCode.which] If object, it must have one of these keys.
-   * @param {number} [eventOrCode.shiftKey] If object, it must have one of these keys.
-   * @returns {*}
+   * @param {boolean} [eventOrCode.shiftKey] If object, it must have one of these keys.
+   * @returns {string|undefined}
    */
   getKey: function getKey(eventOrCode) {
     var isEvent = isObject(eventOrCode)
