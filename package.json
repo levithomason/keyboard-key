@@ -1,6 +1,6 @@
 {
   "name": "keyboard-key",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "A simple utility for determining the KeyboardEvent.key property from a keyboard event.",
   "main": "src/keyboardKey.js",
   "typings": "index.d.ts",
